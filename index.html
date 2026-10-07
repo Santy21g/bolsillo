@@ -61,7 +61,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:8px;pad
 .iconbtn svg{width:20px;height:20px}
 
 .monthnav{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.monthnav h2{margin:0;font:600 17px/1.2 var(--display);text-transform:capitalize}
+.monthnav h2{margin:0;font:600 17px/1.2 var(--display)}
 .monthnav button{background:none;border:0;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
 .monthnav button:hover{background:var(--accent-soft);color:var(--ink)}
 
@@ -317,7 +317,7 @@ input[type=text],input[type=date],input[type=number],select{border:1px solid var
 <script>
 (() => {
   const KEY = "bolsillo.v1";
-  const PALETTE = ["#0f8a64","#2f6fb0","#d4573b","#8a5cc7","#c08a1e","#1f9aa8","#c44d86","#5b7a2e","#7a6a5c","#4a5fd1","#b5523b","#3b8a8a"];
+  const PALETTE = ["#0f8a64","#2f6fb0","#d4573b","#8a5cc7","#c08a1e","#1f9aa8","#c44d86","#5b7a2e","#7a6a5c","#4a5fd1","#b5523b","#3b8a8a","#9a7b1c"];
   const DEFAULT_CATS = [
     {n:"Súper", t:"nec"},{n:"Comida afuera", t:"inn"},{n:"Delivery", t:"inn"},{n:"Transporte", t:"nec"},
     {n:"Servicios", t:"nec"},{n:"Salud", t:"nec"},{n:"Gimnasio", t:"nec"},{n:"Facultad", t:"nec"},
@@ -376,7 +376,7 @@ input[type=text],input[type=date],input[type=number],select{border:1px solid var
 
   // ---------- render ----------
   function render(){
-    $("#monthLabel").textContent = monthName(month);
+    { const m=monthName(month); $("#monthLabel").textContent = m.charAt(0).toUpperCase()+m.slice(1); }
     const gm = state.gastos.filter(g=>g.fecha.startsWith(month));
     const total = gm.reduce((a,g)=>a+g.monto,0);
     const nec = gm.filter(g=>g.tipo==="nec").reduce((a,g)=>a+g.monto,0);
