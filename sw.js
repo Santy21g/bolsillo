@@ -1,5 +1,5 @@
 // Bolsillo — service worker: funciona sin conexión
-const VERSION = "bolsillo-v2";
+const VERSION = "bolsillo-v3";
 const SHELL = ["/", "/index.html", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", e => {
